@@ -41,22 +41,6 @@ c.addEventListener("click", toCelsius);
 
 //////////////// main functions change information by search ///////////////////////////////////
 
-function changeTemp(response) {
-  let changeTemp = document.querySelector("#temperature");
-  changeTemp.innerHTML = Math.round(response.data.main.temp);
-  let humidData = Math.round(response.data.main.humidity) + "%";
-  let getHumid = document.querySelector(".humidity");
-  getHumid.innerHTML = `Humidity ${humidData}`;
-  let getWind = document.querySelector(".wind");
-  let winddata = Math.round(response.data.wind.speed);
-  getWind.innerHTML = `Wind ${winddata} m/s`;
-  let desc = response.data.weather[0].description;
-  let currDescription = document.querySelector("#description");
-  currDescription.innerHTML = `${desc}`;
-
-  console.log(response.data.wind.speed);
-}
-
 function changeCity(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#city-input");
@@ -72,28 +56,24 @@ form.addEventListener("submit", changeCity);
 
 // use current location pin ///// works ok dont touch
 
-function pinMyLocation(response) {
-  console.log(response);
-  let myLoc = document.querySelector("#theTown");
-  myLoc.innerHTML = `${response.data.name}`;
-  let tempMyLoc = document.querySelector("#temperature");
-  tempMyLoc.innerHTML = Math.round(response.data.main.temp);
-
-  let desc = response.data.weather[0].description;
-  let currDescription = document.querySelector("#description");
-  currDescription.innerHTML = `${desc}`;
+function weatherMain(response) {
+  //console.log(response);
+  document.querySelector("#theTown").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector(".humidity").innerHTML = response.data.main.humidity;
+  document.querySelector(".wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#description").innerHTML = response.data.weather[0].main;
 }
 
 function changeToMyLocation(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
   let apiKey = "cf35cd803ef0202f5f034abcff722764";
-  let urlMyLocation = `http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
-  axios.get(urlMyLocation).then(pinMyLocation);
-  console.log("toimii?");
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(weatherMain);
 }
 
-function intermediateMyLoc() {
+function intermediateMyLoc(event) {
+  event.preventDefault();
   navigator.geolocation.getCurrentPosition(changeToMyLocation);
 }
 
