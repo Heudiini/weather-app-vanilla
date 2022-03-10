@@ -1,0 +1,243 @@
+* {
+  margin: 0;
+  padding: 10px auto;
+}
+/*
+body {
+  font-family: "Roboto", sans-serif;
+  background: linear-gradient(
+    89.9deg,
+    rgb(208, 246, 255) 0.1%,
+    rgb(255, 237, 237) 47.9%,
+    rgb(255, 255, 231) 100.2%
+  );
+}*/
+@keyframes slideleft {
+  from {
+    background-position: 0%;
+  }
+
+  to {
+    background-position: 90000%;
+  }
+}
+
+@-webkit-keyframes slideleft {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 90000%;
+  }
+}
+.shecodes-logo {
+  width: fit-content;
+}
+
+#masthead {
+  background-image: url("../sky.jpg");
+  background-repeat: repeat-x;
+  animation: slideleft 50000s infinite linear;
+  -webkit-animation: slideleft 50000s infinite linear;
+  background: cover;
+  width: 100%;
+  height: 1400px;
+}
+/*
+#loader {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  margin: 0;
+}*/
+.reset {
+  position: fixed;
+  color: grey;
+  top: 10px;
+  right: 75px;
+  z-index: 10;
+  width: 13px;
+  height: 17px;
+  line-height: 5px;
+  border-style: none;
+  background-color: white;
+}
+.titleh1 {
+  padding-top: 30px;
+  padding-left: 20px;
+  font-size: 3rem;
+  color: rgb(70, 104, 168);
+}
+#locationBtn {
+  padding: 5px;
+  border-radius: 10px;
+  background-color: rgba(250, 252, 253, 0.6);
+  width: 40px;
+  color: aliceblue;
+  border-style: none;
+}
+#locationBtn:hover {
+  font-size: bold;
+  background-color: rgb(127, 178, 255);
+  transition: all 200ms ease-in-out;
+}
+.titleh2 {
+  font-size: 2rem;
+  text-align: right;
+  padding-right: 50px;
+  padding-bottom: 5px;
+  color: black;
+  line-height: 27px;
+}
+.searchBox {
+  border-style: none;
+  position: fixed;
+  right: 60px;
+  top: 5px;
+  z-index: 3;
+  background-color: white;
+  padding: 5px;
+  color: grey;
+  font-style: italic;
+  font-size: smaller;
+}
+.searchBox-submit {
+  border-style: none;
+  position: fixed;
+  top: 4px;
+  right: 5px;
+  background-color: cornflowerblue;
+  z-index: 3;
+  color: white;
+  padding: 5px 5px;
+  border-radius: 10px;
+}
+.townTitle {
+  align-items: flex-start;
+  font-size: 2rem;
+  width: 250px;
+  color: rgb(250, 4, 127);
+  line-height: 35px;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+
+/*////////////////current area/////////////////////*/
+.current {
+  padding-left: 20px;
+}
+.today-area {
+  padding-left: 30px;
+  border-radius: 15px;
+  background-color: white;
+}
+.units a {
+  padding: 10px;
+  color: black;
+  z-index: 5;
+  font-size: large;
+}
+.units a:hover {
+  color: cornflowerblue;
+}
+
+#current-time {
+  color: rgb(250, 4, 127);
+  padding-top: 20px;
+  padding-left: 5px;
+}
+.center {
+  text-align: center;
+}
+#temperature {
+  color: hotpink;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.current-gif {
+  width: 90px;
+  height: 55px;
+  padding-left: 30px;
+}
+/*//////////////tonight/////////////////////////////*/
+
+.tonight-temp {
+  text-align: center;
+  color: cornflowerblue;
+  font-size: 2rem;
+  font-style: oblique;
+}
+.tonight-title {
+  color: cornflowerblue;
+  padding-left: 5px;
+  font-style: oblique;
+}
+.tonight-icon {
+  text-align: center;
+  margin-left: 90px;
+  width: 60px;
+  height: 55px;
+}
+.tonight-conditions {
+  color: grey;
+  padding-left: 20px;
+  font-style: italic;
+  font-size: smaller;
+}
+/*/ ///////////////////////////forecast area styling*/
+
+.card {
+  display: flex;
+  margin: 7px 0px;
+  border-style: none;
+  background: none;
+  border-radius: 15px;
+}
+.card-title {
+  text-align: left;
+  color: rgb(90, 120, 180);
+}
+.card-body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  line-height: 25px;
+  border-radius: 15px;
+  background-color: white;
+}
+
+img {
+  width: 45px;
+  height: 40px;
+  margin: 15px 25px;
+}
+
+.forecast {
+  background: none;
+}
+
+.card-text {
+  color: grey;
+  padding-left: 10px;
+  font-style: italic;
+  font-size: smaller;
+}
+p {
+  color: grey;
+  padding-left: 10px;
+  font-style: italic;
+  font-size: smaller;
+}
+footer {
+  text-align: center;
+  padding: 15px 10px 30px;
+  color: white;
+  background-color: rgb(252, 201, 205);
+  font-size: small;
+}
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 10px;
+}
