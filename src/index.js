@@ -57,12 +57,14 @@ form.addEventListener("submit", changeCity);
 // use current location pin ///// works ok dont touch
 
 function weatherMain(response) {
-  //console.log(response);
+  console.log(response);
+  console.log(response.data.main);
   document.querySelector("#theTown").innerHTML = response.data.name;
   document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
   document.querySelector(".humidity").innerHTML = response.data.main.humidity;
   document.querySelector(".wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.temp);
 }
 
 function StartPointCity(city) {
