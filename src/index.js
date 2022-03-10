@@ -1,6 +1,6 @@
 ////////////////////current time/////////////////////day////////////
-function showTime() {
-  var d = new Date();
+function showTime(d) {
+  let d = new Date();
   let hour = d.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -13,7 +13,7 @@ function showTime() {
   let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   let currentday = weekdays[day];
   let aika = document.querySelector("#current-time");
-  aika.innerHTML = `  ${currentday} ${hour}:${minute}`;
+  aika.innerHTML = `${currentday} ${hour}:${minute}`;
 }
 showTime();
 
