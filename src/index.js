@@ -65,6 +65,12 @@ function weatherMain(response) {
   document.querySelector(".wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
   document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#tonight-temp").innerHTML = Math.round(response.data.main.temp);
+}
+function nextHours(response) {
+  console.log(response.data.main.temp);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=-41.211128&lon=174.908081&exclude=daily,minutely,current,alerts&units=metric&appid=f35cd803ef0202f5f034abcff722764`;
+  axios.get(apiUrl).then(weatherMain);
 }
 
 function StartPointCity(city) {
