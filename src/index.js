@@ -1,6 +1,5 @@
 ////////////////////current time/////////////////////day////////////
 function showTime(d) {
-  let d = new Date();
   let hour = d.getHours();
   if (hour < 10) {
     hour = `0${hour}`;
@@ -9,13 +8,15 @@ function showTime(d) {
   if (minute < 10) {
     minute = `0${minute}`;
   }
-  let day = d.getDay();
+  let dayIndex = d.getDay();
   let weekdays = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  let currentday = weekdays[day];
-  let aika = document.querySelector("#current-time");
-  aika.innerHTML = `${currentday} ${hour}:${minute}`;
+  let day = weekdays[dayIndex];
+
+  return `${day} ${hour}:${minute}`;
 }
-showTime();
+let time = document.querySelector("#current-time");
+let currentTime = new Date();
+time.innerHTML = showTime(currentTime);
 
 //functions to convert celsius and fahrenheit:
 ///////////fahrenheit//////
