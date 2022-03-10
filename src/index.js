@@ -65,6 +65,18 @@ function weatherMain(response) {
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
 }
 
+function StartPointCity(city) {
+  let apiKey = "cf35cd803ef0202f5f034abcff722764";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(weatherMain);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#theTown").value;
+  StartPointCity(city);
+}
+
 function changeToMyLocation(position) {
   let apiKey = "cf35cd803ef0202f5f034abcff722764";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
@@ -79,3 +91,4 @@ function intermediateMyLoc(event) {
 
 let clickMyLocationButton = document.querySelector("#locationBtn");
 clickMyLocationButton.addEventListener("click", intermediateMyLoc);
+StartPointCity("Helsinki");
