@@ -14,11 +14,43 @@ function showTime(d) {
 
   return `${day} ${hour}:${minute}`;
 }
-let time = document.querySelector("#current-time");
-let currentTime = new Date();
-time.innerHTML = showTime(currentTime);
 
-//functions to convert celsius and fahrenheit:
+//// show all the data requested on page according location wanted
+function weatherMain(response) {
+  document.querySelector("#theTown").innerHTML = response.data.name;
+  document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector(".humidity").innerHTML = response.data.main.humidity;
+  document.querySelector(".wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#tonight-temp").innerHTML = Math.round(response.data.main.temp);
+}
+//collect the data by submitted city input and sent forwards to weather main
+function searchTown(city) {
+  let apiKey = "cf35cd803ef0202f5f034abcff722764";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(weatherMain);
+}
+////seatch input value is sent to search town function
+function takeSubmitValue(event) {
+  event.preventDefault();
+  let city = document.querySelector("#city-input").value;
+  searchTown(city);
+}
+//// collect the data needed for the weathermain function
+function changeToMyLocation(position) {
+  let apiKey = "cf35cd803ef0202f5f034abcff722764";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+
+  axios.get(apiUrl).then(weatherMain);
+}
+///take geolocation data, and proceed to change mytomyloc function
+function pinMyLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(changeToMyLocation);
+}
+
+//functions to convert :
 ///////////fahrenheit//////
 function toFahrenheit(event) {
   event.preventDefault();
@@ -30,73 +62,26 @@ let f = document.querySelector("#fah");
 f.addEventListener("click", toFahrenheit);
 
 //////celcius//////////
+
 function toCelsius(event) {
   event.preventDefault();
   let degrees = document.querySelector("#temperature");
   degrees.innerHTML = 19;
 }
-
 let c = document.querySelector("#cel");
 c.addEventListener("click", toCelsius);
 
-//////////////// main functions change information by search ///////////////////////////////////
-
-function changeCity(event) {
-  event.preventDefault();
-  let searchInput = document.querySelector("#city-input");
-  let city = document.querySelector("#theTown");
-  city.innerHTML = searchInput.value;
-  let apiKey = `01a738ffcc406d9b10304ab407495deb`;
-  let urlLocation = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&appid=${apiKey}&units=metric`;
-  axios.get(urlLocation).then(changeTemp);
-}
+let time = document.querySelector("#current-time");
+let currentTime = new Date();
+time.innerHTML = showTime(currentTime);
 
 let form = document.querySelector("#theForm");
-form.addEventListener("submit", changeCity);
+form.addEventListener("submit", takeSubmitValue);
 
-// use current location pin ///// works ok dont touch
+//// from current button press we proceed to pinmylocation function up
+let currentBtn = document.querySelector("#locationBtn");
+currentBtn.addEventListener("click", pinMyLocation);
 
-function weatherMain(response) {
-  console.log(response);
-  console.log(response.data.main);
-  document.querySelector("#theTown").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector(".humidity").innerHTML = response.data.main.humidity;
-  document.querySelector(".wind").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#description").innerHTML = response.data.weather[0].main;
-  document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#tonight-temp").innerHTML = Math.round(response.data.main.temp);
-}
-function nextHours(response) {
-  console.log(response.data.main.temp);
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=-41.211128&lon=174.908081&exclude=daily,minutely,current,alerts&units=metric&appid=f35cd803ef0202f5f034abcff722764`;
-  axios.get(apiUrl).then(weatherMain);
-}
+///default point city:
 
-function StartPointCity(city) {
-  let apiKey = "cf35cd803ef0202f5f034abcff722764";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(weatherMain);
-}
-
-function handleSubmit(event) {
-  event.preventDefault();
-  let city = document.querySelector("#theTown").value;
-  StartPointCity(city);
-}
-
-function changeToMyLocation(position) {
-  let apiKey = "cf35cd803ef0202f5f034abcff722764";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
-  axios.get(apiUrl).then(weatherMain);
-}
-
-function intermediateMyLoc(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(changeToMyLocation);
-}
-
-let clickMyLocationButton = document.querySelector("#locationBtn");
-clickMyLocationButton.addEventListener("click", intermediateMyLoc);
-StartPointCity("Helsinki");
+searchTown("helsinki");
