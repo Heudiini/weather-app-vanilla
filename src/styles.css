@@ -71,7 +71,7 @@ body {
 #locationBtn {
   padding: 5px;
   border-radius: 10px;
-  background-color: rgba(250, 252, 253, 0.6);
+  background-color: rgba(98, 99, 99, 0.6);
   width: 40px;
   color: aliceblue;
   border-style: none;
@@ -125,9 +125,10 @@ body {
 /*////////////////current area/////////////////////*/
 .current {
   padding-left: 20px;
+  padding-right: 20px;
 }
 .today-area {
-  padding-left: 30px;
+  padding-left: 20px;
   border-radius: 15px;
   background-color: white;
 }
@@ -188,6 +189,8 @@ body {
 /*/ ///////////////////////////forecast area styling*/
 
 .card {
+  padding-left: 10px;
+  padding-right: 10px;
   display: flex;
   margin: 7px 0px;
   border-style: none;
@@ -233,11 +236,14 @@ footer {
   text-align: center;
   padding: 15px 10px 30px;
   color: white;
-  background-color: rgb(252, 201, 205);
+  background-color: rgb(252, 176, 182);
   font-size: small;
 }
 a {
   color: white;
   text-decoration: none;
   font-size: 10px;
+}
+a:hover {
+  color: aqua;
 }
