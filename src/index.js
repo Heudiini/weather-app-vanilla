@@ -17,14 +17,27 @@ function showTime(d) {
 
 //// show all the data requested on page according location wanted
 function weatherMain(response) {
+  console.log(response.data);
+
+  celsius = Math.round(response.data.main.temp);
+
   document.querySelector("#theTown").innerHTML = response.data.name;
-  document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#temperature").innerHTML = celsius;
   document.querySelector(".humidity").innerHTML = response.data.main.humidity;
   document.querySelector(".wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
   document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.temp);
-  document.querySelector("#tonight-temp").innerHTML = Math.round(response.data.main.temp);
+  //document.querySelector("#tonight-temp").innerHTML = Math.round(response.data.main.temp);
+  //icon change , icon data from openweather api
+
+  let iconForCurrent = document.querySelector("#icon");
+  iconForCurrent.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconForCurrent.setAttribute("alt", response.data.weather[0].description);
 }
+
 //collect the data by submitted city input and sent forwards to weather main
 function searchTown(city) {
   let apiKey = "cf35cd803ef0202f5f034abcff722764";
@@ -51,25 +64,34 @@ function pinMyLocation(event) {
 }
 
 //functions to convert :
-///////////fahrenheit//////
-function toFahrenheit(event) {
+///////////fahrenheit////// ps. prevent default is to tell code that its un necessary to open browser
+//as we have <a> link involved in html file
+function convertToFahrenheit(event) {
   event.preventDefault();
+  let fahrenheit = (celsius * 9) / 5 + 32;
   let degrees = document.querySelector("#temperature");
-  degrees.innerHTML = 66;
+  /////remove active class of celcius each time clicked fahrenheit
+  //cel.classList.remove("active");
+  // fah.classList.add("active");
+  degrees.innerHTML = Math.round(fahrenheit);
 }
 
-let f = document.querySelector("#fah");
-f.addEventListener("click", toFahrenheit);
+let fahLink = document.querySelector("#fah");
+fahLink.addEventListener("click", convertToFahrenheit);
 
 //////celcius//////////
 
 function toCelsius(event) {
   event.preventDefault();
+
   let degrees = document.querySelector("#temperature");
-  degrees.innerHTML = 19;
+  degrees.innerHTML = celsius;
 }
-let c = document.querySelector("#cel");
-c.addEventListener("click", toCelsius);
+
+let celLink = document.querySelector("#cel");
+celLink.addEventListener("click", toCelsius);
+
+let celsius = null;
 
 let time = document.querySelector("#current-time");
 let currentTime = new Date();
@@ -84,4 +106,4 @@ currentBtn.addEventListener("click", pinMyLocation);
 
 ///default point city:
 
-searchTown("helsinki");
+searchTown("Santa Cruz de Tenerife");
