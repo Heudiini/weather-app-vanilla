@@ -63,33 +63,37 @@ function pinMyLocation(event) {
   navigator.geolocation.getCurrentPosition(changeToMyLocation);
 }
 
-//functions to convert :
-///////////fahrenheit////// ps. prevent default is to tell code that its un necessary to open browser
+// convert temperature functions:
+// ps. prevent default is to tell code that its un necessary to open browser
 //as we have <a> link involved in html file
+
+let celLink = document.querySelector(".cel");
+celLink.addEventListener("click", toCelsius);
+
+let fahLink = document.querySelector(".fah");
+fahLink.addEventListener("click", convertToFahrenheit);
+
+///////////fahrenheit//
+
 function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheit = (celsius * 9) / 5 + 32;
   let degrees = document.querySelector("#temperature");
   /////remove active class of celcius each time clicked fahrenheit
-  //cel.classList.remove("active");
-  // fah.classList.add("active");
+  celLink.classList.remove("active");
+  fahLink.classList.add("active");
   degrees.innerHTML = Math.round(fahrenheit);
 }
-
-let fahLink = document.querySelector("#fah");
-fahLink.addEventListener("click", convertToFahrenheit);
 
 //////celcius//////////
 
 function toCelsius(event) {
   event.preventDefault();
-
   let degrees = document.querySelector("#temperature");
+  fahLink.classList.remove("active");
+  celLink.classList.add("active");
   degrees.innerHTML = celsius;
 }
-
-let celLink = document.querySelector("#cel");
-celLink.addEventListener("click", toCelsius);
 
 let celsius = null;
 

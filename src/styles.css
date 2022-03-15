@@ -130,14 +130,18 @@ body {
 .today-area {
   padding-left: 20px;
   border-radius: 15px;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.4);
 }
-.units a {
-  padding: 10px;
+
+.units .active {
+  color: rgb(250, 4, 127);
+  cursor: default;
+  text-decoration: none;
   font-size: large;
-  color: cornflowerblue;
-  z-index: 5;
-  font-size: large;
+}
+
+.units .active:hover {
+  text-decoration: none;
 }
 
 #current-time {
@@ -149,7 +153,7 @@ body {
   text-align: center;
 }
 #temperature {
-  color: hotpink;
+  color: rgb(250, 4, 127);
   font-size: 2rem;
   text-align: center;
 }
@@ -227,15 +231,15 @@ p {
 footer {
   text-align: center;
   padding: 15px 10px 30px;
-  color: white;
-  background-color: rgb(252, 176, 182);
+  color: grey;
+  background-color: rgb(253, 212, 215);
   font-size: small;
 }
 a {
-  color: white;
+  color: grey;
   text-decoration: none;
   font-size: 10px;
 }
 a:hover {
-  color: aqua;
+  color: black;
 }
