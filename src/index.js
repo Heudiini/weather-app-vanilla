@@ -25,11 +25,11 @@ function weatherMain(response) {
   document.querySelector("#temperature").innerHTML = celsius;
   document.querySelector(".humidity").innerHTML = response.data.main.humidity;
   document.querySelector(".wind").innerHTML = Math.round(response.data.wind.speed);
-  document.querySelector("#description").innerHTML = response.data.weather[0].main;
+  document.querySelector("#description").innerHTML = response.data.weather[0].description;
   document.querySelector("#feels-like").innerHTML = Math.round(response.data.main.temp);
   //document.querySelector("#tonight-temp").innerHTML = Math.round(response.data.main.temp);
-  //icon change , icon data from openweather api
 
+  //icon change , icon data from openweather api
   let iconForCurrent = document.querySelector("#icon");
   iconForCurrent.setAttribute(
     "src",
@@ -44,7 +44,7 @@ function searchTown(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(weatherMain);
 }
-////seatch input value is sent to search town function
+////search input value is sent to search town function
 function takeSubmitValue(event) {
   event.preventDefault();
   let city = document.querySelector("#city-input").value;
@@ -65,7 +65,7 @@ function pinMyLocation(event) {
 
 // convert temperature functions:
 // ps. prevent default is to tell code that its un necessary to open browser
-//as we have <a> link involved in html file
+//as we have <a> links involved for temperature convertions
 
 let celLink = document.querySelector(".cel");
 celLink.addEventListener("click", toCelsius);
@@ -79,14 +79,13 @@ function convertToFahrenheit(event) {
   event.preventDefault();
   let fahrenheit = (celsius * 9) / 5 + 32;
   let degrees = document.querySelector("#temperature");
-  /////remove active class of celcius each time clicked fahrenheit
+  /////remove active class of celcius each time clicked fahrenheit and vice versa
   celLink.classList.remove("active");
   fahLink.classList.add("active");
   degrees.innerHTML = Math.round(fahrenheit);
 }
 
 //////celcius//////////
-
 function toCelsius(event) {
   event.preventDefault();
   let degrees = document.querySelector("#temperature");
@@ -94,11 +93,11 @@ function toCelsius(event) {
   celLink.classList.add("active");
   degrees.innerHTML = celsius;
 }
-
+//
 let celsius = null;
+let currentTime = new Date();
 
 let time = document.querySelector("#current-time");
-let currentTime = new Date();
 time.innerHTML = showTime(currentTime);
 
 let form = document.querySelector("#theForm");
