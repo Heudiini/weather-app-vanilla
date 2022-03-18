@@ -67,11 +67,12 @@ function pinMyLocation(event) {
 // ps. prevent default is to tell code that its un necessary to open browser
 //as we have <a> links involved for temperature convertions
 
-let celLink = document.querySelector(".cel");
+let celLink = document.querySelector("#cel");
 celLink.addEventListener("click", toCelsius);
 
-let fahLink = document.querySelector(".fah");
+let fahLink = document.querySelector("#fah");
 fahLink.addEventListener("click", convertToFahrenheit);
+/////
 
 ///////////fahrenheit//
 
@@ -89,10 +90,10 @@ function convertToFahrenheit(event) {
 function toCelsius(event) {
   event.preventDefault();
   let degrees = document.querySelector("#temperature");
-  fahLink.classList.remove("active");
-  celLink.classList.add("active");
+
   degrees.innerHTML = celsius;
 }
+
 //
 let celsius = null;
 let currentTime = new Date();

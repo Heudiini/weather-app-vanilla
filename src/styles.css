@@ -143,15 +143,17 @@ body {
   height: 80px;
 }
 
-.units .active {
-  color: rgb(250, 4, 127);
-  cursor: default;
-  text-decoration: none;
+.weather-temperature a {
   font-size: large;
 }
 
-.units .active:hover {
-  text-decoration: none;
+.weather-temperature .active {
+  color: rgb(252, 27, 158);
+  pointer-events: none;
+}
+.weather-temperature .active:hover {
+  color: black;
+  cursor: none;
 }
 
 #current-time {
