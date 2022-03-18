@@ -90,7 +90,8 @@ function convertToFahrenheit(event) {
 function toCelsius(event) {
   event.preventDefault();
   let degrees = document.querySelector("#temperature");
-
+  celLink.classList.add("active");
+  fahLink.classList.remove("active");
   degrees.innerHTML = celsius;
 }
 
