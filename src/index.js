@@ -136,14 +136,14 @@ function displayForecast(response) {
   let forecastHtml = `<div class="column">`;
   forecast.forEach(function (forecastDay, index) {
     ///concatenating
-    if (index < 6) {
+    if (index != 0 && index < 6) {
       forecastHtml =
         forecastHtml +
         `
   <div class="card-body card  ">
                 <h5 class=" row card-title forecast-day ">${ForecastdayDisplay(forecastDay.dt)} 
                    </h5>  
-                 
+               
                  <h5 class="row"> <div> <img src= "http://openweathermap.org/img/wn/${
                    forecastDay.weather[0].icon
                  }@2x.png" <div></h5>
