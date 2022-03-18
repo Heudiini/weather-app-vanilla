@@ -148,11 +148,11 @@ body {
 }
 
 .weather-temperature .active {
-  color: rgb(252, 27, 158);
+  color: rgb(250, 4, 127);
   pointer-events: none;
 }
 .weather-temperature .active:hover {
-  color: black;
+  color: rgb(250, 4, 127);
   cursor: none;
 }
 
