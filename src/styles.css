@@ -73,7 +73,8 @@ body {
 #locationBtn {
   padding: 5px;
   border-radius: 10px;
-  background-color: rgb(119, 233, 199);
+  background-color: #bab9cc;
+
   width: 40px;
   color: aliceblue;
   border-style: none;
@@ -120,8 +121,8 @@ body {
   align-items: flex-start;
   font-size: 2rem;
   width: 300px;
-  color: rgb(248, 237, 238);
-  text-shadow: 0 3px 13px rgba(43, 12, 49, 0.7);
+  color: rgb(250, 4, 127);
+  /*text-shadow: 0 3px 13px rgba(43, 12, 49, 0.7);*/
 
   line-height: 35px;
   padding-bottom: 20px;
@@ -136,8 +137,9 @@ body {
 .today-area {
   padding-left: 20px;
   border-radius: 15px;
-  background-color: white;
+  background-color: rgba(169, 177, 197, 0.5);
 }
+
 #icon {
   width: 80px;
   height: 80px;
@@ -145,6 +147,7 @@ body {
 
 .weather-temperature a {
   font-size: large;
+  color: black;
 }
 
 .weather-temperature .active {
@@ -189,7 +192,7 @@ body {
   font-style: oblique;
 }
 .tonight-conditions {
-  color: grey;
+  color: black;
   padding-left: 20px;
   font-style: italic;
   font-size: smaller;
@@ -197,6 +200,7 @@ body {
 /*/ ///////////////////////////forecast area styling*/
 
 .card {
+  padding-left: 0px;
   display: flex;
   margin: 10px;
   border-style: none;
@@ -204,44 +208,39 @@ body {
   border-radius: 15px;
 }
 .card-title {
+  padding-left: 20px;
   text-align: left;
   font-size: smaller;
-  text-transform: uppercase;
 }
 .card-body {
   padding-left: 10px;
   padding-right: 10px;
-  color: rgb(91, 86, 94);
+
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  line-height: 25px;
-  border-radius: 15px;
-  background-color: white;
-}
 
+  border-radius: 15px;
+  background-color: rgba(169, 177, 197, 0.5);
+}
 img {
-  width: 45px;
-  height: 40px;
-  margin: 15px 25px;
+  width: 55px;
+  height: 50px;
+  margin: 5px;
 }
 
 .forecast {
   background: none;
 }
 
-.card-text {
-  color: grey;
+.card-text,
+p {
+  color: rgb(43, 42, 42);
   padding-left: 10px;
   font-style: italic;
   font-size: small;
 }
-p {
-  color: grey;
-  padding-left: 10px;
-  font-style: italic;
-  font-size: smaller;
-}
+
 footer {
   text-align: center;
   padding: 15px 10px 30px;

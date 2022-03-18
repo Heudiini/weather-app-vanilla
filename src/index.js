@@ -14,6 +14,14 @@ function showTime(d) {
 
   return `${day} ${hour}:${minute}`;
 }
+
+function ForecastdayDisplay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
 function getforecast(coordinates) {
   console.log(coordinates);
   let apiKey = "cf35cd803ef0202f5f034abcff722764";
@@ -121,28 +129,36 @@ currentBtn.addEventListener("click", pinMyLocation);
 
 ///receiving response from daily api
 function displayForecast(response) {
-  console.log(response.data);
+  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
-  let forecastHtml = `<div class="column">`;
-  days.forEach(function (day) {
-    ///concatenating
 
-    forecastHtml =
-      forecastHtml +
-      `
-  <div class="card-body card">
-                <h5 class="card-title forecast-day">${day} <br />
-                   <img class="icon" src="src/weathericons/icons8-snow.gif" alt="snow gif"/>  
-                    </h5>
-                      <div class="card-text weather-forecast-temperatures">
-                          <span class="forecast-max">15 °<span>max</span>
-                         </span><br>
-                          <span class="forecast-min">0°<span>min</span>
-                        </span> 
+  let forecastHtml = `<div class="column">`;
+  forecast.forEach(function (forecastDay, index) {
+    ///concatenating
+    if (index < 6) {
+      forecastHtml =
+        forecastHtml +
+        `
+  <div class="card-body card  ">
+                <h5 class=" row card-title forecast-day ">${ForecastdayDisplay(forecastDay.dt)} 
+                   </h5>  
+                 
+                 <h5 class="row"> <div> <img src= "http://openweathermap.org/img/wn/${
+                   forecastDay.weather[0].icon
+                 }@2x.png" <div></h5>
+                 <div class=" row card-text weather-forecast-temperatures">
+                          <span class="forecast-max">${Math.round(
+                            forecastDay.temp.max
+                          )}<span>°max</span></span>
+                          <span class="forecast-min">${Math.round(
+                            forecastDay.temp.min
+                          )}<span>°min</span></span>
+                         
                     </div>
-              </div>
+          </div>
   `;
+    }
   });
   forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
