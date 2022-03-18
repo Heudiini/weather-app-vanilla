@@ -14,10 +14,16 @@ function showTime(d) {
 
   return `${day} ${hour}:${minute}`;
 }
-
+function getforecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "cf35cd803ef0202f5f034abcff722764";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&&appid=${apiKey}&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
 //// show all the data requested on page according location wanted
 function weatherMain(response) {
-  console.log(response.data);
+  //console.log(response.data);
 
   celsius = Math.round(response.data.main.temp);
 
@@ -36,6 +42,8 @@ function weatherMain(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconForCurrent.setAttribute("alt", response.data.weather[0].description);
+
+  getforecast(response.data.coord);
 }
 
 //collect the data by submitted city input and sent forwards to weather main
@@ -109,6 +117,39 @@ form.addEventListener("submit", takeSubmitValue);
 let currentBtn = document.querySelector("#locationBtn");
 currentBtn.addEventListener("click", pinMyLocation);
 
+/////injecting html into js so we can display forecast
+
+///receiving response from daily api
+function displayForecast(response) {
+  console.log(response.data);
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  let forecastHtml = `<div class="column">`;
+  days.forEach(function (day) {
+    ///concatenating
+
+    forecastHtml =
+      forecastHtml +
+      `
+  <div class="card-body card">
+                <h5 class="card-title forecast-day">${day} <br />
+                   <img class="icon" src="src/weathericons/icons8-snow.gif" alt="snow gif"/>  
+                    </h5>
+                      <div class="card-text weather-forecast-temperatures">
+                          <span class="forecast-max">15 °<span>max</span>
+                         </span><br>
+                          <span class="forecast-min">0°<span>min</span>
+                        </span> 
+                    </div>
+              </div>
+  `;
+  });
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+  //console.log(forecastHtml);
+}
+
 ///default point city:
 
 searchTown("Santa Cruz de Tenerife");
+displayForecast();
