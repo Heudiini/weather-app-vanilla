@@ -239,7 +239,7 @@ p {
   /*rgb(43, 42, 42);*/
   padding-left: 10px;
   text-transform: capitalize;
-  font-size: smaller;
+  font-size: normal;
 }
 img {
   width: 55px;
