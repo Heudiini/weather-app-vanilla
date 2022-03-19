@@ -26,10 +26,10 @@ function getforecast(coordinates) {
   console.log(coordinates);
   let apiKey = "cf35cd803ef0202f5f034abcff722764";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&&appid=${apiKey}&units=metric`;
-  console.log(apiUrl);
+  //console.log(apiUrl);
   axios.get(apiUrl).then(displayForecast);
 }
-//// show all the data requested on page according location wanted
+
 function weatherMain(response) {
   //console.log(response.data);
 
@@ -51,10 +51,11 @@ function weatherMain(response) {
   );
   iconForCurrent.setAttribute("alt", response.data.weather[0].description);
 
+  //this needs to be before "searchtown city function"
   getforecast(response.data.coord);
 }
 
-//collect the data by submitted city input and sent forwards to weather main
+//collect the data by submitted city input and sent forwards to weather main function
 function searchTown(city) {
   let apiKey = "cf35cd803ef0202f5f034abcff722764";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
@@ -129,13 +130,14 @@ currentBtn.addEventListener("click", pinMyLocation);
 
 ///receiving response from daily api
 function displayForecast(response) {
-  console.log(response.data.daily);
+  //console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHtml = `<div class="column">`;
   forecast.forEach(function (forecastDay, index) {
     ///concatenating
+    //start display from no.1 and show next 5 days
     if (index != 0 && index < 6) {
       forecastHtml =
         forecastHtml +
