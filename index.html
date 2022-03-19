@@ -17,6 +17,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,900;1,400&display=swap"
       rel="stylesheet"
     />
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&display=swap" rel="stylesheet">
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/styles.css" />
     <title>Weather</title>
@@ -46,22 +50,23 @@
           <input type="submit" value="submit" class="searchBox-submit" />
         </form>
         <div>
-          <h1 class="titleh1">WEATHER HEUDIINI</h1>
+          <h1 class="titleh1">Weather Heudiini</h1>
 
           <button id="locationBtn">📌</button>
 
-          <h2 class="titleh2">Today and next 5 days</h2>
+          <h2 class="titleh2">5-day Forecast</h2>
         </div>
         <div class="row">
           <div class="col-sm-6 current">
             <!----current weather ------------- 1. column -->
             <div class="card sm-6 currentBody">
-              <div class="col townTitle" id="theTown"><h2>Search city</h2></div>
-
+              <div class="col townTitle" id="theTown"><h2>Search city    </h2> 
+                </div>
+               
               <div class="today-area">
                 <h5 id="current-time"></h5>
                 <p>
-                  <span>Current conditions: </span>
+                  
                   <span id="description"></span> <br /><span>Feels like: </span
                   ><span id="feels-like"></span><span>°</span>
                 </p>
@@ -104,12 +109,17 @@
 
       <footer>
         <a href="https://github.com/Heudiini/weather-app-vanilla" target="_blank"
-          >Open-source code on github by Heidi Mörsky 2022</a >
-        <br />
+          >2022 Open-source code Heidi Mörsky</a > <a  target="_blank"href="https://www.shecodes.io/workshops">
+            <img class="shecodes-logo"src="plus.png" alt="workshop plus">
+          </a>
+          
+        
         <a href="https://icons8.com/icon/Zdv1QR7jYV80/wind"> Icons by Icons8</a>
        
         <a href="https://unsplash.com/@billy_huy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
-          > Photo by Billy Huynh </a >
+          
+          > <br>
+          Photo by Billy Huynh </a >
         on
         <a href="https://unsplash.com/images/nature/cloud?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText"
           >Unsplash</a>

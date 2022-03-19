@@ -31,7 +31,8 @@ body {
   }
 }
 .shecodes-logo {
-  width: fit-content;
+  width: 70px;
+  height: 20px;
 }
 
 #masthead {
@@ -63,12 +64,16 @@ body {
   background-color: white;
 }
 .titleh1 {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
+  font-family: "Caveat", "Ooh Baby", cursive;
+  /* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
     "Open Sans", "Helvetica Neue", sans-serif;
+    */
+
   padding-top: 30px;
   padding-left: 20px;
   font-size: 3rem;
-  color: rgb(70, 104, 168);
+  color: rgb(80, 77, 77);
+  text-decoration: underline 3px rgb(90, 89, 89);
 }
 #locationBtn {
   padding: 5px;
@@ -86,16 +91,14 @@ body {
 }
 .titleh2 {
   text-align: right;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: x-large;
+  font-family: "Caveat", "Ooh Baby", cursive;
+  font-size: xx-large;
   text-align: right;
   padding-right: 50px;
   padding-bottom: 5px;
   color: black;
   line-height: 27px;
-  font-style: italic;
-  text-transform: uppercase;
+  /*font-style: italic;*/
 }
 .searchBox {
   border-style: none;
@@ -121,14 +124,12 @@ body {
   border-radius: 10px;
 }
 .townTitle {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-    "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: "Caveat", "Ooh Baby", cursive;
   align-items: flex-start;
   font-size: 2rem;
-  width: 300px;
-  color: rgb(250, 4, 127);
-  /*text-shadow: 0 3px 13px rgba(43, 12, 49, 0.7);*/
-
+  max-width: 300px;
+  color: white;
+  text-shadow: 0 3px 13px rgba(20, 3, 24, 0.7);
   line-height: 35px;
   padding-bottom: 20px;
   text-transform: uppercase;
@@ -165,7 +166,7 @@ body {
 }
 
 #current-time {
-  color: rgb(250, 4, 127);
+  color: black;
   padding-top: 20px;
   padding-left: 5px;
 }
@@ -215,7 +216,9 @@ body {
 .card-title {
   padding-left: 20px;
   text-align: left;
-  font-size: smaller;
+  font-size: large;
+
+  font-family: "Caveat", "Ooh Baby", cursive;
 }
 .card-body {
   padding-left: 10px;
@@ -228,6 +231,16 @@ body {
   border-radius: 15px;
   background-color: rgba(169, 177, 197, 0.5);
 }
+.describe-forecast,
+.card-text,
+p {
+  font-family: "Caveat", "Ooh Baby";
+  color: rgb(104, 101, 101);
+  /*rgb(43, 42, 42);*/
+  padding-left: 10px;
+  text-transform: capitalize;
+  font-size: small;
+}
 img {
   width: 55px;
   height: 50px;
@@ -236,14 +249,6 @@ img {
 
 .forecast {
   background: none;
-}
-
-.card-text,
-p {
-  color: rgb(43, 42, 42);
-  padding-left: 10px;
-  font-style: italic;
-  font-size: small;
 }
 
 footer {
