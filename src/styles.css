@@ -157,11 +157,11 @@ body {
 }
 
 .weather-temperature .active {
-  color: rgb(250, 4, 127);
+  color: #ec6e4c;
   pointer-events: none;
 }
 .weather-temperature .active:hover {
-  color: rgb(250, 4, 127);
+  color: #ec6e4c;
   cursor: none;
 }
 
@@ -174,7 +174,7 @@ body {
   text-align: center;
 }
 #temperature {
-  color: rgb(250, 4, 127);
+  color: #ec6e4c;
   font-size: 2rem;
   text-align: center;
 }
@@ -242,9 +242,9 @@ p {
   font-size: normal;
 }
 img {
-  width: 55px;
-  height: 50px;
-  margin: 5px;
+  width: 60px;
+  height: 55px;
+  margin: 2px;
 }
 
 .forecast {
