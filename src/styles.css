@@ -78,7 +78,7 @@ body {
 #locationBtn {
   padding: 5px;
   border-radius: 10px;
-  background-color: #bab9cc;
+  background-color: rgba(182, 213, 248);
 
   width: 40px;
   color: aliceblue;
@@ -87,7 +87,7 @@ body {
 }
 #locationBtn:hover {
   font-size: bold;
-  background-color: rgb(127, 178, 255);
+  background-color: rgb(148, 246, 250);
   transition: all 200ms ease-in-out;
 }
 .titleh2 {
@@ -124,6 +124,7 @@ body {
   padding: 5px 5px;
   border-radius: 10px;
 }
+
 .townTitle {
   font-family: "Caveat", "Ooh Baby", cursive;
   align-items: flex-start;
@@ -144,7 +145,8 @@ body {
 .today-area {
   padding-left: 20px;
   border-radius: 15px;
-  background-color: rgba(169, 177, 197, 0.7);
+  background-color: rgba(182, 213, 248, 0.7);
+  /*background-color: rgba(169, 177, 197, 0.7);*/
   box-shadow: 5px 5px 5px rgba(20, 3, 24, 0.5);
 }
 
@@ -231,7 +233,8 @@ body {
   justify-content: space-around;
 
   border-radius: 15px;
-  background-color: rgba(169, 177, 197, 0.7);
+  background-color: rgba(182, 213, 248, 0.7);
+  /* background-color: rgba(169, 177, 197, 0.7);*/
   box-shadow: 5px 5px 5px rgba(20, 3, 24, 0.5);
 }
 .describe-forecast,
