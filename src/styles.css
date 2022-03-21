@@ -83,6 +83,7 @@ body {
   width: 40px;
   color: aliceblue;
   border-style: none;
+  box-shadow: 5px 5px 5px rgba(20, 3, 24, 0.5);
 }
 #locationBtn:hover {
   font-size: bold;
@@ -143,7 +144,8 @@ body {
 .today-area {
   padding-left: 20px;
   border-radius: 15px;
-  background-color: rgba(169, 177, 197, 0.5);
+  background-color: rgba(169, 177, 197, 0.7);
+  box-shadow: 5px 5px 5px rgba(20, 3, 24, 0.5);
 }
 
 #icon {
@@ -229,7 +231,8 @@ body {
   justify-content: space-around;
 
   border-radius: 15px;
-  background-color: rgba(169, 177, 197, 0.5);
+  background-color: rgba(169, 177, 197, 0.7);
+  box-shadow: 5px 5px 5px rgba(20, 3, 24, 0.5);
 }
 .describe-forecast,
 .card-text,
@@ -256,7 +259,7 @@ footer {
   padding: 15px 10px 30px;
   color: grey;
   background-color: rgb(253, 212, 215);
-  font-size: small;
+  font-size: 10px;
 }
 a {
   color: grey;
