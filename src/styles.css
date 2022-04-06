@@ -1,11 +1,12 @@
 /* ///////////////////////////////preloader from MouriThemes */
 .loaderText {
   position: absolute;
-  left: 40%;
-  top: 30%;
+  top: calc(50vh - 75px);
+  left: calc(50vw - 75px);
   font-family: "Caveat", "Ooh Baby", cursive;
   font-size: x-large;
-  color: #716f6d;
+  color: #fffefd;
+  z-index: 9999999999;
 }
 .loader_bg {
   position: fixed;
@@ -27,8 +28,8 @@
 .loader:before,
 .loader:after {
   content: "";
-  border: 1rem solid #727275;
-  background-color: rgb(243, 245, 198);
+  border: 1rem solid #bdc0f8;
+  background-color: rgb(198, 233, 245);
 
   border-radius: 50%;
   width: inherit;
