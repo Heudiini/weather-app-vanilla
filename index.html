@@ -25,17 +25,16 @@
     <link rel="stylesheet" href="src/styles.css" />
     <title>Weather</title>
 
-    <!----
-    <script>
-      $(window).load(function () {
-        //Do the code in the {}s when the window has loaded
-        $("#loader").fadeOut("fast"); //Fade out the #loader div
-      });
-    </script>
-    --->
+    
   </head>
 
   <body>
+    
+<div class="loader_bg">
+  <div class="loaderText">Loading Weather Heudiini</div>
+      <div class="loader"> </div>
+    </div>
+
     <div id="masthead">
       <div class="container">
         <form id="theForm">
@@ -129,5 +128,12 @@
       </footer>
     </div>
     <script src="src/index.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      setTimeout(function () {
+        $(".loader_bg").fadeToggle();
+      }, 1500);
+      </script>
+
   </body>
 </html>
